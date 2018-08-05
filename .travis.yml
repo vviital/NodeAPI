@@ -7,3 +7,6 @@ before_script:
   - npm run-script generate
   - npm start &
   - sleep 15
+env:
+  - NODE_ENV=travis-test
+ 

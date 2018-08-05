@@ -3,7 +3,7 @@ var config = require(libs + 'config');
 
 var test = require('tape');
 var request = require('superagent');
-var baseUrl = 'http://node_api:1337/api';
+var baseUrl = `${config.get('server:uri')}:1337/api`;
 
 var userCredentials = {
     username: config.get('default:user:username'),
@@ -13,6 +13,8 @@ var clientCredentials = {
     client_id: config.get('default:client:clientId'),
     client_secret: config.get('default:client:clientSecret')
 };
+console.log('userCredentials', userCredentials);
+console.log('clientCredentials', clientCredentials);
 var accessToken;
 var refreshToken;
 
@@ -52,6 +54,7 @@ test('Get token from username-password', function (t) {
         .send(userCredentials)
         .send(clientCredentials)
         .end(function (err, res) {
+            console.log('--- error ---', err);
             t.equal(res.status, 200, 'response status shoud be 200');
             t.true(getTokensFromBody(res.body), 'tokens shoud be in response body');
             t.end();
