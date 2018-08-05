@@ -22,6 +22,4 @@ if (process.env.NODE_ENV === 'travis-test') {
     nconf.set('default:client:clientSecret', process.env.DEFAULT_CLIENT_SECRET);
 }
 
-console.log('--- nconf.get ---', nconf.get('mongoose:uri'));
-
 module.exports = nconf;
