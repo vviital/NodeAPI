@@ -7,3 +7,12 @@ before_script:
   - npm run-script generate
   - npm start &
   - sleep 15
+env:
+  - PORT=1337
+  - TOKEN_LIFE=3600
+  - MONGOOSE_URI=mongodb://mongo/apiDB
+  - DEFAULT_USER_NAME=myapi
+  - DEFAULT_USER_PASSWORD=abc1234
+  - DEFAULT_CLIENT_NAME="Android API v1"
+  - DEFAULT_CLIENT_ID=android
+  - DEFAULT_CLIENT_SECRET=SomeRandomCharsAndNumbers
