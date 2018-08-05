@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'travis-test') {
     nconf.set('default:client:name', 'Android API v1');
     nconf.set('default:client:clientId', 'android');
     nconf.set('default:client:clientSecret', 'SomeRandomCharsAndNumbers');
+    nconf.set('server:uri', 'http://localhost');
 } else {
     nconf.set('port', +process.env.PORT);
     nconf.set('security:tokenLife', +process.env.TOKEN_LIFE);
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'travis-test') {
     nconf.set('default:client:name', process.env.DEFAULT_CLIENT_NAME);
     nconf.set('default:client:clientId', process.env.DEFAULT_CLIENT_ID);
     nconf.set('default:client:clientSecret', process.env.DEFAULT_CLIENT_SECRET);
+    nconf.set('server:uri', process.env.SERVER_URI);
 }
 
 module.exports = nconf;
